@@ -1,0 +1,17 @@
+D:\MyWork\Pharmacy_Project\Pharmacy\Pharmacy\bin\Debug\net6.0-windows\Pharmacy.exe
+D:\MyWork\Pharmacy_Project\Pharmacy\Pharmacy\bin\Debug\net6.0-windows\Pharmacy.deps.json
+D:\MyWork\Pharmacy_Project\Pharmacy\Pharmacy\bin\Debug\net6.0-windows\Pharmacy.runtimeconfig.json
+D:\MyWork\Pharmacy_Project\Pharmacy\Pharmacy\bin\Debug\net6.0-windows\Pharmacy.dll
+D:\MyWork\Pharmacy_Project\Pharmacy\Pharmacy\bin\Debug\net6.0-windows\Pharmacy.pdb
+D:\MyWork\Pharmacy_Project\Pharmacy\Pharmacy\obj\Debug\net6.0-windows\Pharmacy.csproj.AssemblyReference.cache
+D:\MyWork\Pharmacy_Project\Pharmacy\Pharmacy\obj\Debug\net6.0-windows\Pharmacy.Form1.resources
+D:\MyWork\Pharmacy_Project\Pharmacy\Pharmacy\obj\Debug\net6.0-windows\Pharmacy.csproj.GenerateResource.cache
+D:\MyWork\Pharmacy_Project\Pharmacy\Pharmacy\obj\Debug\net6.0-windows\Pharmacy.GeneratedMSBuildEditorConfig.editorconfig
+D:\MyWork\Pharmacy_Project\Pharmacy\Pharmacy\obj\Debug\net6.0-windows\Pharmacy.AssemblyInfoInputs.cache
+D:\MyWork\Pharmacy_Project\Pharmacy\Pharmacy\obj\Debug\net6.0-windows\Pharmacy.AssemblyInfo.cs
+D:\MyWork\Pharmacy_Project\Pharmacy\Pharmacy\obj\Debug\net6.0-windows\Pharmacy.csproj.CoreCompileInputs.cache
+D:\MyWork\Pharmacy_Project\Pharmacy\Pharmacy\obj\Debug\net6.0-windows\Pharmacy.dll
+D:\MyWork\Pharmacy_Project\Pharmacy\Pharmacy\obj\Debug\net6.0-windows\refint\Pharmacy.dll
+D:\MyWork\Pharmacy_Project\Pharmacy\Pharmacy\obj\Debug\net6.0-windows\Pharmacy.pdb
+D:\MyWork\Pharmacy_Project\Pharmacy\Pharmacy\obj\Debug\net6.0-windows\Pharmacy.genruntimeconfig.cache
+D:\MyWork\Pharmacy_Project\Pharmacy\Pharmacy\obj\Debug\net6.0-windows\ref\Pharmacy.dll
