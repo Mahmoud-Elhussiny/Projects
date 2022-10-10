@@ -32,6 +32,13 @@ namespace Pharmacy.Migrations
                         .IsUnique();
 
                     b.ToTable("Accounts");
+
+                    b.HasData(
+                        new
+                        {
+                            AccountId = 1m,
+                            AccountName = "مشرف النظام"
+                        });
                 });
 
             modelBuilder.Entity("Pharmacy.Model.Entities.Drug", b =>

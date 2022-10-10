@@ -11,7 +11,7 @@ using Pharmacy.Model;
 namespace Pharmacy.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20221009140325_intialDBsqllite")]
+    [Migration("20221010133645_intialDBsqllite")]
     partial class intialDBsqllite
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -34,6 +34,13 @@ namespace Pharmacy.Migrations
                         .IsUnique();
 
                     b.ToTable("Accounts");
+
+                    b.HasData(
+                        new
+                        {
+                            AccountId = 1m,
+                            AccountName = "مشرف النظام"
+                        });
                 });
 
             modelBuilder.Entity("Pharmacy.Model.Entities.Drug", b =>
@@ -176,6 +183,16 @@ namespace Pharmacy.Migrations
                         .IsUnique();
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = 1m,
+                            FirstName = "Mahmoud",
+                            LastName = "Hussein",
+                            Password = "12345",
+                            UserName = "asd123"
+                        });
                 });
 
             modelBuilder.Entity("Pharmacy.Model.Entities.User_Account", b =>

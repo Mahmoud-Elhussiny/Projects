@@ -148,6 +148,16 @@ namespace Pharmacy.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.InsertData(
+                table: "Accounts",
+                columns: new[] { "AccountId", "AccountName" },
+                values: new object[] { 1m, "مشرف النظام" });
+
+            migrationBuilder.InsertData(
+                table: "Users",
+                columns: new[] { "UserId", "Address", "FirstName", "LastName", "Password", "PhoneNum1", "PhoneNum2", "UserName" },
+                values: new object[] { 1m, null, "Mahmoud", "Hussein", "12345", null, null, "asd123" });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Accounts_AccountName",
                 table: "Accounts",

@@ -12,7 +12,7 @@ namespace Pharmacy.Services
 {
     public class UserServices
     {
-        public string CreateUser(UserDto userDto)
+        public string CreateUserservice(UserDto userDto)
         {
             using (var Db = new Model.AppDbContext())
             {
@@ -42,5 +42,18 @@ namespace Pharmacy.Services
             return "تم حقظ البيانات بنجاح";
             
         }
+
+        public bool Loginservice(string username , string pass)
+        {
+            using(var Db = new Model.AppDbContext())
+            {
+                var user = Db.Users
+                    .Where(o=>o.UserName == username && o.Password == pass).FirstOrDefault();
+                if(user == null) { return false; }
+
+                return true;
+            }
+        }
+
     }
 }

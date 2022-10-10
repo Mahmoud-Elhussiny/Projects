@@ -15,6 +15,13 @@ namespace Pharmacy.Model.Configrations
         public void Configure(EntityTypeBuilder<Account> builder)
         {
             builder.HasIndex(x => x.AccountName).IsUnique();
+
+            builder.HasData(
+                new Account
+                {
+                    AccountId = 1,
+                    AccountName = "مشرف النظام"
+                });
         }
     }
 }

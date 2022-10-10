@@ -14,6 +14,10 @@ namespace Pharmacy.Model.Configrations
         public void Configure(EntityTypeBuilder<Manufacturer> builder)
         {
             builder.HasIndex(x => x.ManufacturerName).IsUnique();
+
+          
+
         }
+
     }
 }

@@ -12,9 +12,17 @@ namespace Pharmacy.Model
 {
     public class AppDbContext:DbContext
     {
-        
+        //public AppDbContext(DbContextOptions<AppDbContext> options):base(options)
+        //{
 
-        public DbSet<User> Users { get; set; }
+        //}
+
+        //public AppDbContext()
+        //{
+
+        //}
+
+        public DbSet<User>? Users { get; set; }
         public DbSet<User_Account>? User_Accounts { get; set; }
         public DbSet<Account>? Accounts { get; set; }
         public DbSet<Drug>? Drugs { get; set; }
@@ -22,7 +30,7 @@ namespace Pharmacy.Model
 
         protected override void OnConfiguring(DbContextOptionsBuilder options) =>
             options.UseSqlite(ConfigurationManager.ConnectionStrings["PharmacyDatabase"].ConnectionString);
-
+           //options.UseSqlite("Data Source=PharmacyDB.db");
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
