@@ -12,7 +12,8 @@ namespace Pharmacy.Model.Entities
     public class Manufacturer
     {
         [Key]
-        public int ManufacturerId { get; set; }
+        [Column(TypeName = "decimal(7,0)")]
+        public decimal ManufacturerId { get; set; }
         [Required]
         public string? ManufacturerName { get; set; }
         public string? Address { get; set; }

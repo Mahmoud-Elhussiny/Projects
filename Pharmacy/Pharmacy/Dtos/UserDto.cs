@@ -1,19 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pharmacy.Model.Entities
+namespace Pharmacy.Dtos
 {
-    [Table("Users")]
-    public class User
+    public class UserDto
     {
-        [Key]
-        [Column(TypeName = "decimal(7,0)")]
-        public decimal UserId { get; set; }
         [Required]
         public string? FirstName { get; set; }
         [Required]

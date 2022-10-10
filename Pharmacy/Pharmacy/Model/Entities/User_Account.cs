@@ -11,12 +11,15 @@ namespace Pharmacy.Model.Entities
     [Table("User_Accounts")]
     public class User_Account
     {
-        [Key]
-        public int Id { get; set; }
+
+        [Column(TypeName = "decimal(7,0)")]
+        public decimal Id { get; set; }
         [Required]
-        public int UserId { get; set; }
+        [Column(TypeName = "decimal(7,0)")]
+        public decimal UserId { get; set; }
         [Required]
-        public int AccountId { get; set; }
+        [Column(TypeName = "decimal(7,0)")]
+        public decimal AccountId { get; set; }
 
         public Account? Account { get; set; }
         public User? User { get; set; }

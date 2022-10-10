@@ -12,17 +12,20 @@ namespace Pharmacy.Model.Entities
     public class Order
     {
         [Key]
-        public int OrderId { get; set; }
+        [Column(TypeName = "decimal(7,0)")]
+        public decimal OrderId { get; set; }
         [Required]
         public DateTime OrdereDate { get; set; }
-
+        [Column(TypeName = "decimal(7, 2)")]
         public decimal TotalPrice { get; set; }
 
         [Required]
-        public int UserId { get; set; }
+        [Column(TypeName = "decimal(7,0)")]
+        public decimal UserId { get; set; }
         
         public User? User { get; set; }
-        List<Order_Item>? items;
+
+        public List<Order_Item>? items { get; set; }
 
     }
 }
