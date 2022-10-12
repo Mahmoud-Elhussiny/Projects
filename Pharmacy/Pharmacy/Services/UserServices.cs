@@ -10,20 +10,20 @@ using System.Threading.Tasks;
 
 namespace Pharmacy.Services
 {
-    public class UserServices
+    public static class UserServices
     {
-        public string CreateUserservice(UserDto userDto)
+        public static string CreateUserservice(UserDto userDto)
         {
             using (var Db = new Model.AppDbContext())
             {
-                if(Db.Users.Any(o => o.UserName == userDto.UserName))
+                if(Db.User.Any(o => o.UserName == userDto.UserName))
                 {
                     return "اسم المستخدم تم استخدامة من قبل";
                 }
 
                 var user = new User();
 
-                user.UserId = Db.Users.Any() ? Db.Users.Max(o => o.UserId) + 1 : 1;
+                user.UserId = Db.User.Any() ? Db.User.Max(o => o.UserId) + 1 : 1;
                 user.FirstName = userDto.FirstName;
                 user.LastName = userDto.LastName;
                 user.UserName = userDto.UserName;
@@ -32,7 +32,7 @@ namespace Pharmacy.Services
                 user.PhoneNum2 = userDto.PhoneNum2;
                 user.Address = userDto.Address;
 
-                 Db.Users.Add(user);
+                 Db.User.Add(user);
                if(Db.SaveChanges() == 0)
                 {
                     return "مشكلة فى حفظ البيانات";
@@ -43,11 +43,11 @@ namespace Pharmacy.Services
             
         }
 
-        public bool Loginservice(string username , string pass)
+        public static bool Loginservice(string username , string pass)
         {
             using(var Db = new Model.AppDbContext())
             {
-                var user = Db.Users
+                var user = Db.User
                     .Where(o=>o.UserName == username && o.Password == pass).FirstOrDefault();
                 if(user == null) { return false; }
 

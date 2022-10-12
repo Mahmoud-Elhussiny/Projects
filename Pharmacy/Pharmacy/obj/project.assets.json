@@ -1396,19 +1396,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Mahmoud\\.nuget\\packages\\": {}
+    "C:\\Users\\Ma7moud\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\MyWork\\Projects\\Pharmacy\\Pharmacy\\Pharmacy.csproj",
+      "projectUniqueName": "D:\\MyWork\\Projects\\Pharmacy\\Pharmacy\\Pharmacy.csproj",
       "projectName": "Pharmacy",
-      "projectPath": "E:\\MyWork\\Projects\\Pharmacy\\Pharmacy\\Pharmacy.csproj",
-      "packagesPath": "C:\\Users\\Mahmoud\\.nuget\\packages\\",
-      "outputPath": "E:\\MyWork\\Projects\\Pharmacy\\Pharmacy\\obj\\",
+      "projectPath": "D:\\MyWork\\Projects\\Pharmacy\\Pharmacy\\Pharmacy.csproj",
+      "packagesPath": "C:\\Users\\Ma7moud\\.nuget\\packages\\",
+      "outputPath": "D:\\MyWork\\Projects\\Pharmacy\\Pharmacy\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Mahmoud\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Ma7moud\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

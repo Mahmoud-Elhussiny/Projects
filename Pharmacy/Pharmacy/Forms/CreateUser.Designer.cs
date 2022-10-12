@@ -35,9 +35,13 @@
             this.password = new System.Windows.Forms.TextBox();
             this.username = new System.Windows.Forms.TextBox();
             this.Homepanel = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.loginpanel.SuspendLayout();
             this.Homepanel.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // loginpanel
@@ -48,16 +52,17 @@
             this.loginpanel.Controls.Add(this.loginbtn);
             this.loginpanel.Controls.Add(this.password);
             this.loginpanel.Controls.Add(this.username);
+            this.loginpanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.loginpanel.Location = new System.Drawing.Point(0, 0);
             this.loginpanel.Name = "loginpanel";
-            this.loginpanel.Size = new System.Drawing.Size(800, 450);
+            this.loginpanel.Size = new System.Drawing.Size(884, 511);
             this.loginpanel.TabIndex = 0;
             // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(497, 178);
+            this.label2.Location = new System.Drawing.Point(539, 208);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 15);
             this.label2.TabIndex = 2;
@@ -68,7 +73,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(493, 115);
+            this.label1.Location = new System.Drawing.Point(535, 145);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 15);
             this.label1.TabIndex = 2;
@@ -79,7 +84,7 @@
             // 
             this.loginbtn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.loginbtn.BackColor = System.Drawing.Color.Silver;
-            this.loginbtn.Location = new System.Drawing.Point(238, 248);
+            this.loginbtn.Location = new System.Drawing.Point(280, 278);
             this.loginbtn.Name = "loginbtn";
             this.loginbtn.Size = new System.Drawing.Size(249, 25);
             this.loginbtn.TabIndex = 1;
@@ -90,7 +95,7 @@
             // password
             // 
             this.password.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.password.Location = new System.Drawing.Point(238, 175);
+            this.password.Location = new System.Drawing.Point(280, 205);
             this.password.Name = "password";
             this.password.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.password.Size = new System.Drawing.Size(249, 23);
@@ -100,7 +105,7 @@
             // username
             // 
             this.username.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.username.Location = new System.Drawing.Point(238, 112);
+            this.username.Location = new System.Drawing.Point(280, 142);
             this.username.Name = "username";
             this.username.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.username.Size = new System.Drawing.Size(249, 23);
@@ -110,30 +115,61 @@
             // Homepanel
             // 
             this.Homepanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.Homepanel.Controls.Add(this.label3);
+            this.Homepanel.Controls.Add(this.label4);
+            this.Homepanel.Controls.Add(this.panel2);
+            this.Homepanel.Controls.Add(this.panel1);
             this.Homepanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Homepanel.Location = new System.Drawing.Point(0, 0);
             this.Homepanel.Name = "Homepanel";
-            this.Homepanel.Size = new System.Drawing.Size(800, 450);
+            this.Homepanel.Size = new System.Drawing.Size(884, 511);
             this.Homepanel.TabIndex = 1;
             // 
-            // label3
+            // panel1
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(358, 207);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(113, 32);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Welcome";
-            this.label3.Click += new System.EventHandler(this.label3_Click_1);
+            this.panel1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.panel1.Controls.Add(this.panel3);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Location = new System.Drawing.Point(711, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(173, 511);
+            this.panel1.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(711, 59);
+            this.panel2.TabIndex = 1;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(173, 100);
+            this.panel3.TabIndex = 0;
+            // 
+            // label4
+            // 
+            this.label4.AutoEllipsis = true;
+            this.label4.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(0, 59);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(711, 43);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "مستخدم جديد";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // CreateUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(884, 511);
             this.Controls.Add(this.Homepanel);
             this.Controls.Add(this.loginpanel);
             this.Name = "CreateUser";
@@ -144,7 +180,7 @@
             this.loginpanel.ResumeLayout(false);
             this.loginpanel.PerformLayout();
             this.Homepanel.ResumeLayout(false);
-            this.Homepanel.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -158,6 +194,9 @@
         private Label label2;
         private Label label1;
         private Panel Homepanel;
-        private Label label3;
+        private Label label4;
+        private Panel panel2;
+        private Panel panel1;
+        private Panel panel3;
     }
 }

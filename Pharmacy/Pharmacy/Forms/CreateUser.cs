@@ -25,8 +25,8 @@ namespace Pharmacy.Forms
 
         private void loginbtn_Click(object sender, EventArgs e)
         {
-            UserServices userServices = new UserServices();
-            if(userServices.Loginservice(username.Text, password.Text))
+            
+            if(UserServices.Loginservice(username.Text, password.Text))
             {
                 loginpanel.Visible = false;
                 Homepanel.Visible = true;
@@ -45,11 +45,16 @@ namespace Pharmacy.Forms
 
         private void CreateUser_Load(object sender, EventArgs e)
         {
-            
+            username.Select();
             Homepanel.Visible=false;
         }
 
         private void label3_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }
