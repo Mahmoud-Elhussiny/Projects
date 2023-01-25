@@ -12,7 +12,6 @@ namespace Pharmacy.Model.Entities
     public class User
     {
         [Key]
-        [Column(TypeName = "decimal(7,0)")]
         public decimal UserId { get; set; }
         [Required]
         public string? FirstName { get; set; }

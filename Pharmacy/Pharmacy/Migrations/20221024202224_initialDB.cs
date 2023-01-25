@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Pharmacy.Migrations
 {
-    public partial class intialDBsqllite : Migration
+    public partial class initialDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,7 +13,7 @@ namespace Pharmacy.Migrations
                 name: "Accounts",
                 columns: table => new
                 {
-                    AccountId = table.Column<decimal>(type: "decimal(7,0)", nullable: false),
+                    AccountId = table.Column<decimal>(type: "TEXT", nullable: false),
                     AccountName = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
@@ -22,10 +22,23 @@ namespace Pharmacy.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Catigories",
+                columns: table => new
+                {
+                    CatigoryId = table.Column<decimal>(type: "TEXT", nullable: false),
+                    CatigoryName = table.Column<string>(type: "TEXT", nullable: false),
+                    Description = table.Column<string>(type: "TEXT", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Catigories", x => x.CatigoryId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Manufacturers",
                 columns: table => new
                 {
-                    ManufacturerId = table.Column<decimal>(type: "decimal(7,0)", nullable: false),
+                    ManufacturerId = table.Column<decimal>(type: "TEXT", nullable: false),
                     ManufacturerName = table.Column<string>(type: "TEXT", nullable: false),
                     Address = table.Column<string>(type: "TEXT", nullable: true),
                     PhoneNum1 = table.Column<string>(type: "TEXT", nullable: true),
@@ -40,7 +53,7 @@ namespace Pharmacy.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    UserId = table.Column<decimal>(type: "decimal(7,0)", nullable: false),
+                    UserId = table.Column<decimal>(type: "TEXT", nullable: false),
                     FirstName = table.Column<string>(type: "TEXT", nullable: false),
                     LastName = table.Column<string>(type: "TEXT", nullable: false),
                     UserName = table.Column<string>(type: "TEXT", nullable: false),
@@ -58,17 +71,25 @@ namespace Pharmacy.Migrations
                 name: "Drugs",
                 columns: table => new
                 {
+                    DrugId = table.Column<decimal>(type: "TEXT", nullable: false),
                     DrugName = table.Column<string>(type: "TEXT", nullable: false),
-                    ExpireDate = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    DrugId = table.Column<decimal>(type: "decimal(7,0)", nullable: false),
                     DrugCode = table.Column<string>(type: "TEXT", nullable: true),
+                    ExpireDate = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(6, 2)", nullable: false),
+                    numofpices = table.Column<int>(type: "INTEGER", nullable: true),
                     Quantity = table.Column<int>(type: "INTEGER", nullable: false),
-                    ManufacturerId = table.Column<decimal>(type: "decimal(7,0)", nullable: true)
+                    ManufacturerId = table.Column<decimal>(type: "TEXT", nullable: true),
+                    CatigoryId = table.Column<decimal>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Drugs", x => new { x.DrugName, x.ExpireDate });
+                    table.PrimaryKey("PK_Drugs", x => x.DrugId);
+                    table.ForeignKey(
+                        name: "FK_Drugs_Catigories_CatigoryId",
+                        column: x => x.CatigoryId,
+                        principalTable: "Catigories",
+                        principalColumn: "CatigoryId",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Drugs_Manufacturers_ManufacturerId",
                         column: x => x.ManufacturerId,
@@ -80,10 +101,10 @@ namespace Pharmacy.Migrations
                 name: "Orders",
                 columns: table => new
                 {
-                    OrderId = table.Column<decimal>(type: "decimal(7,0)", nullable: false),
+                    OrderId = table.Column<decimal>(type: "TEXT", nullable: false),
                     OrdereDate = table.Column<DateTime>(type: "TEXT", nullable: false),
                     TotalPrice = table.Column<decimal>(type: "decimal(7, 2)", nullable: false),
-                    UserId = table.Column<decimal>(type: "decimal(7,0)", nullable: false)
+                    UserId = table.Column<decimal>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -100,9 +121,9 @@ namespace Pharmacy.Migrations
                 name: "User_Accounts",
                 columns: table => new
                 {
-                    UserId = table.Column<decimal>(type: "decimal(7,0)", nullable: false),
-                    AccountId = table.Column<decimal>(type: "decimal(7,0)", nullable: false),
-                    Id = table.Column<decimal>(type: "decimal(7,0)", nullable: false)
+                    UserId = table.Column<decimal>(type: "TEXT", nullable: false),
+                    AccountId = table.Column<decimal>(type: "TEXT", nullable: false),
+                    Id = table.Column<decimal>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -125,20 +146,18 @@ namespace Pharmacy.Migrations
                 name: "Order_Items",
                 columns: table => new
                 {
-                    OrderItemId = table.Column<decimal>(type: "decimal(7,0)", nullable: false),
-                    OrderId = table.Column<decimal>(type: "decimal(7,0)", nullable: false),
-                    DrugId = table.Column<decimal>(type: "decimal(7,0)", nullable: false),
-                    DrugName = table.Column<string>(type: "TEXT", nullable: false),
-                    DrugExpireDate = table.Column<DateTime>(type: "TEXT", nullable: false)
+                    OrderItemId = table.Column<decimal>(type: "TEXT", nullable: false),
+                    OrderId = table.Column<decimal>(type: "TEXT", nullable: false),
+                    DrugId = table.Column<decimal>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Order_Items", x => x.OrderItemId);
                     table.ForeignKey(
-                        name: "FK_Order_Items_Drugs_DrugName_DrugExpireDate",
-                        columns: x => new { x.DrugName, x.DrugExpireDate },
+                        name: "FK_Order_Items_Drugs_DrugId",
+                        column: x => x.DrugId,
                         principalTable: "Drugs",
-                        principalColumns: new[] { "DrugName", "ExpireDate" },
+                        principalColumn: "DrugId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Order_Items_Orders_OrderId",
@@ -154,14 +173,40 @@ namespace Pharmacy.Migrations
                 values: new object[] { 1m, "مشرف النظام" });
 
             migrationBuilder.InsertData(
+                table: "Accounts",
+                columns: new[] { "AccountId", "AccountName" },
+                values: new object[] { 2m, "مستخدم" });
+
+            migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "UserId", "Address", "FirstName", "LastName", "Password", "PhoneNum1", "PhoneNum2", "UserName" },
                 values: new object[] { 1m, null, "Mahmoud", "Hussein", "12345", null, null, "asd123" });
+
+            migrationBuilder.InsertData(
+                table: "User_Accounts",
+                columns: new[] { "AccountId", "UserId", "Id" },
+                values: new object[] { 1m, 1m, 1m });
+
+            migrationBuilder.InsertData(
+                table: "User_Accounts",
+                columns: new[] { "AccountId", "UserId", "Id" },
+                values: new object[] { 2m, 1m, 2m });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Accounts_AccountName",
                 table: "Accounts",
                 column: "AccountName",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Drugs_CatigoryId",
+                table: "Drugs",
+                column: "CatigoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Drugs_DrugName_ExpireDate",
+                table: "Drugs",
+                columns: new[] { "DrugName", "ExpireDate" },
                 unique: true);
 
             migrationBuilder.CreateIndex(
@@ -176,9 +221,9 @@ namespace Pharmacy.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Order_Items_DrugName_DrugExpireDate",
+                name: "IX_Order_Items_DrugId",
                 table: "Order_Items",
-                columns: new[] { "DrugName", "DrugExpireDate" });
+                column: "DrugId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Order_Items_OrderId",
@@ -218,6 +263,9 @@ namespace Pharmacy.Migrations
 
             migrationBuilder.DropTable(
                 name: "Accounts");
+
+            migrationBuilder.DropTable(
+                name: "Catigories");
 
             migrationBuilder.DropTable(
                 name: "Manufacturers");

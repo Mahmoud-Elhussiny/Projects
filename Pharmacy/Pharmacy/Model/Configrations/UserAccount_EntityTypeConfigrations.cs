@@ -14,6 +14,21 @@ namespace Pharmacy.Model.Configrations
         public void Configure(EntityTypeBuilder<User_Account> builder)
         {
             builder.HasKey(o => new {o.UserId ,o.AccountId});
+
+            builder.HasData(
+              new User_Account
+              {
+                  Id = 1,
+                  UserId = 1,
+                  AccountId = 1
+              }, new User_Account
+              {
+                  Id = 2,
+                  UserId = 1,
+                  AccountId = 2
+              }
+              );
+
         }
     }
 }

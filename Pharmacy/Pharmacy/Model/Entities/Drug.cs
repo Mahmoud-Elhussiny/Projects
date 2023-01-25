@@ -11,7 +11,7 @@ namespace Pharmacy.Model.Entities
     [Table("Drugs")]
     public class Drug
     {
-        [Column(TypeName = "decimal(7,0)")]
+        
         public decimal DrugId { get; set; }
         [Required]
         public string? DrugName { get; set; }
@@ -21,11 +21,16 @@ namespace Pharmacy.Model.Entities
         [Required]
         [Column(TypeName = "decimal(6, 2)")]
         public decimal Price { get; set; }
+        public int? numofpices { get; set; }
+        public int? totalNumofPices { get; set; }
         public int Quantity { get; set; }= 1;
-        [Column(TypeName = "decimal(7,0)")]
+        
+        
         public decimal? ManufacturerId { get; set; }
         public Manufacturer? Manufacturer { get; set; }
 
+        public decimal CatigoryId { get; set; }
+        public Catigory? Catigory { get; set; }
 
     }
 }

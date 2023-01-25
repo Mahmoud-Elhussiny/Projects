@@ -11,8 +11,8 @@ using Pharmacy.Model;
 namespace Pharmacy.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20221010133645_intialDBsqllite")]
-    partial class intialDBsqllite
+    [Migration("20221024202224_initialDB")]
+    partial class initialDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -22,7 +22,7 @@ namespace Pharmacy.Migrations
             modelBuilder.Entity("Pharmacy.Model.Entities.Account", b =>
                 {
                     b.Property<decimal>("AccountId")
-                        .HasColumnType("decimal(7,0)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("AccountName")
                         .IsRequired()
@@ -40,25 +40,51 @@ namespace Pharmacy.Migrations
                         {
                             AccountId = 1m,
                             AccountName = "مشرف النظام"
+                        },
+                        new
+                        {
+                            AccountId = 2m,
+                            AccountName = "مستخدم"
                         });
+                });
+
+            modelBuilder.Entity("Pharmacy.Model.Entities.Catigory", b =>
+                {
+                    b.Property<decimal>("CatigoryId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CatigoryName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("CatigoryId");
+
+                    b.ToTable("Catigories");
                 });
 
             modelBuilder.Entity("Pharmacy.Model.Entities.Drug", b =>
                 {
-                    b.Property<string>("DrugName")
+                    b.Property<decimal>("DrugId")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("ExpireDate")
+                    b.Property<decimal>("CatigoryId")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("DrugCode")
                         .HasColumnType("TEXT");
 
-                    b.Property<decimal>("DrugId")
-                        .HasColumnType("decimal(7,0)");
+                    b.Property<string>("DrugName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("ExpireDate")
+                        .HasColumnType("TEXT");
 
                     b.Property<decimal?>("ManufacturerId")
-                        .HasColumnType("decimal(7,0)");
+                        .HasColumnType("TEXT");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(6, 2)");
@@ -66,9 +92,17 @@ namespace Pharmacy.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("DrugName", "ExpireDate");
+                    b.Property<int?>("numofpices")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("DrugId");
+
+                    b.HasIndex("CatigoryId");
 
                     b.HasIndex("ManufacturerId");
+
+                    b.HasIndex("DrugName", "ExpireDate")
+                        .IsUnique();
 
                     b.ToTable("Drugs");
                 });
@@ -76,7 +110,7 @@ namespace Pharmacy.Migrations
             modelBuilder.Entity("Pharmacy.Model.Entities.Manufacturer", b =>
                 {
                     b.Property<decimal>("ManufacturerId")
-                        .HasColumnType("decimal(7,0)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Address")
                         .HasColumnType("TEXT");
@@ -102,7 +136,7 @@ namespace Pharmacy.Migrations
             modelBuilder.Entity("Pharmacy.Model.Entities.Order", b =>
                 {
                     b.Property<decimal>("OrderId")
-                        .HasColumnType("decimal(7,0)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("OrdereDate")
                         .HasColumnType("TEXT");
@@ -111,7 +145,7 @@ namespace Pharmacy.Migrations
                         .HasColumnType("decimal(7, 2)");
 
                     b.Property<decimal>("UserId")
-                        .HasColumnType("decimal(7,0)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("OrderId");
 
@@ -123,26 +157,19 @@ namespace Pharmacy.Migrations
             modelBuilder.Entity("Pharmacy.Model.Entities.Order_Item", b =>
                 {
                     b.Property<decimal>("OrderItemId")
-                        .HasColumnType("decimal(7,0)");
-
-                    b.Property<DateTime>("DrugExpireDate")
                         .HasColumnType("TEXT");
 
                     b.Property<decimal>("DrugId")
-                        .HasColumnType("decimal(7,0)");
-
-                    b.Property<string>("DrugName")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<decimal>("OrderId")
-                        .HasColumnType("decimal(7,0)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("OrderItemId");
 
-                    b.HasIndex("OrderId");
+                    b.HasIndex("DrugId");
 
-                    b.HasIndex("DrugName", "DrugExpireDate");
+                    b.HasIndex("OrderId");
 
                     b.ToTable("Order_Items");
                 });
@@ -150,7 +177,7 @@ namespace Pharmacy.Migrations
             modelBuilder.Entity("Pharmacy.Model.Entities.User", b =>
                 {
                     b.Property<decimal>("UserId")
-                        .HasColumnType("decimal(7,0)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Address")
                         .HasColumnType("TEXT");
@@ -198,26 +225,48 @@ namespace Pharmacy.Migrations
             modelBuilder.Entity("Pharmacy.Model.Entities.User_Account", b =>
                 {
                     b.Property<decimal>("UserId")
-                        .HasColumnType("decimal(7,0)");
+                        .HasColumnType("TEXT");
 
                     b.Property<decimal>("AccountId")
-                        .HasColumnType("decimal(7,0)");
+                        .HasColumnType("TEXT");
 
                     b.Property<decimal>("Id")
-                        .HasColumnType("decimal(7,0)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("UserId", "AccountId");
 
                     b.HasIndex("AccountId");
 
                     b.ToTable("User_Accounts");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = 1m,
+                            AccountId = 1m,
+                            Id = 1m
+                        },
+                        new
+                        {
+                            UserId = 1m,
+                            AccountId = 2m,
+                            Id = 2m
+                        });
                 });
 
             modelBuilder.Entity("Pharmacy.Model.Entities.Drug", b =>
                 {
+                    b.HasOne("Pharmacy.Model.Entities.Catigory", "Catigory")
+                        .WithMany("Drugs")
+                        .HasForeignKey("CatigoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Pharmacy.Model.Entities.Manufacturer", "Manufacturer")
                         .WithMany()
                         .HasForeignKey("ManufacturerId");
+
+                    b.Navigation("Catigory");
 
                     b.Navigation("Manufacturer");
                 });
@@ -235,15 +284,15 @@ namespace Pharmacy.Migrations
 
             modelBuilder.Entity("Pharmacy.Model.Entities.Order_Item", b =>
                 {
-                    b.HasOne("Pharmacy.Model.Entities.Order", "Order")
-                        .WithMany("items")
-                        .HasForeignKey("OrderId")
+                    b.HasOne("Pharmacy.Model.Entities.Drug", "Drug")
+                        .WithMany()
+                        .HasForeignKey("DrugId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Pharmacy.Model.Entities.Drug", "Drug")
-                        .WithMany()
-                        .HasForeignKey("DrugName", "DrugExpireDate")
+                    b.HasOne("Pharmacy.Model.Entities.Order", "Order")
+                        .WithMany("items")
+                        .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -269,6 +318,11 @@ namespace Pharmacy.Migrations
                     b.Navigation("Account");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Pharmacy.Model.Entities.Catigory", b =>
+                {
+                    b.Navigation("Drugs");
                 });
 
             modelBuilder.Entity("Pharmacy.Model.Entities.Order", b =>

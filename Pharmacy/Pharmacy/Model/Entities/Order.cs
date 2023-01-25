@@ -12,7 +12,6 @@ namespace Pharmacy.Model.Entities
     public class Order
     {
         [Key]
-        [Column(TypeName = "decimal(7,0)")]
         public decimal OrderId { get; set; }
         [Required]
         public DateTime OrdereDate { get; set; }
@@ -20,7 +19,6 @@ namespace Pharmacy.Model.Entities
         public decimal TotalPrice { get; set; }
 
         [Required]
-        [Column(TypeName = "decimal(7,0)")]
         public decimal UserId { get; set; }
         
         public User? User { get; set; }

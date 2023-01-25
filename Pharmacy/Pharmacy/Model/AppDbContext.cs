@@ -13,23 +13,24 @@ namespace Pharmacy.Model
 {
     public class AppDbContext:DbContext
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
-        {
-            Database.EnsureCreated();
-        }
+        //public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+        //{
+        //    Database.EnsureCreated();
+        //}
 
-        public AppDbContext()
-        {
+        //public AppDbContext()
+        //{
 
-        }
+        //}
 
-        public DbSet<User>? User { get; set; }
-        public DbSet<User_Account>? User_Accounts { get; set; }
-        public DbSet<Account>? Accounts { get; set; }
-        public DbSet<Drug>? Drugs { get; set; }
-        public DbSet<Order_Item>? order_Items { get; set; }
+        public DbSet<User> User { get; set; }
+        public DbSet<User_Account> User_Accounts { get; set; }
+        public DbSet<Account> Accounts { get; set; }
+        public DbSet<Drug> Drugs { get; set; }
+        public DbSet<Order_Item> order_Items { get; set; }
 
-
+        public DbSet<Catigory> catigories { get; set; }
+        public DbSet<Manufacturer> Manufacturers { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
@@ -41,6 +42,7 @@ namespace Pharmacy.Model
 
             // options.UseSqlite(ConfigurationManager.ConnectionStrings["PharmacyDatabase"].ConnectionString);
             options.UseSqlite("Data Source=D:\\MyWork\\Projects\\Pharmacy\\Pharmacy\\PharmacyDB.db");
+            //options.UseSqlite("Data Source=E:\\MyWork\\pharmcy_proj\\Pharmacy\\Pharmacy\\PharmacyDB.db");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

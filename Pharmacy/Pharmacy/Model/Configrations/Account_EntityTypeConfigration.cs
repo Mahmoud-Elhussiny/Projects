@@ -21,6 +21,10 @@ namespace Pharmacy.Model.Configrations
                 {
                     AccountId = 1,
                     AccountName = "مشرف النظام"
+                },new Account
+                {
+                    AccountId = 2,
+                    AccountName = "مستخدم"
                 });
         }
     }

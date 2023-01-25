@@ -14,7 +14,8 @@ namespace Pharmacy.Model.Configrations
     {
         public void Configure(EntityTypeBuilder<Drug> builder)
         {
-            builder.HasKey(o => new { o.DrugName, o.ExpireDate });
+            builder.HasKey(o =>o.DrugId);
+            builder.HasIndex(o => new { o.DrugName, o.ExpireDate }).IsUnique();
         }
     }
 }

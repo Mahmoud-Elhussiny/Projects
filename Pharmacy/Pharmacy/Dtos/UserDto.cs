@@ -20,5 +20,11 @@ namespace Pharmacy.Dtos
         public string? PhoneNum1 { get; set; }
         public string? PhoneNum2 { get; set; }
         public string? Address { get; set; }
+        public bool IsUser { get; set; }
+        public bool IsAdmin { get; set; }
+
     }
+
+
+
 }

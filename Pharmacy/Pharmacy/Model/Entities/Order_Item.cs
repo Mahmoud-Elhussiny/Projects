@@ -12,14 +12,14 @@ namespace Pharmacy.Model.Entities
     public class Order_Item
     {
         [Key]
-        [Column(TypeName = "decimal(7,0)")]
         public decimal OrderItemId { get; set; }
         [Required]
-        [Column(TypeName = "decimal(7,0)")]
         public decimal OrderId { get; set; }
         [Required]
-        [Column(TypeName = "decimal(7,0)")]
         public decimal DrugId { get; set; }
+
+        public bool Type { get; set; } = true;
+        public decimal Price { get; set; }
 
         public Order? Order { get; set; }
         public Drug? Drug { get; set; }
