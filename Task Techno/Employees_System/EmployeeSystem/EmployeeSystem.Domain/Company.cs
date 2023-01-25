@@ -1,20 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EmplyeeSystem.domain
+namespace EmployeeSystem.Domain
 {
-    public class Companies
+    public class Company
     {
         [Key]
         public int Id { get; set; }
         public string Name { get; set; } = "";
-        public string location { get; set; } = "";
 
-        public List<Departments> Departments { get; set; }
+        public List<Department>? departments { get; set; }
+
     }
 }

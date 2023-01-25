@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmplyeeSystem.domain", "EmplyeeSystem.domain\EmplyeeSystem.domain.csproj", "{8C10E2C7-9A0C-4471-BE5A-A4398CD2875E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmplyeeSystem.domain", "EmplyeeSystem.domain\EmplyeeSystem.domain.csproj", "{8C10E2C7-9A0C-4471-BE5A-A4398CD2875E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmplyeeSystem.Application", "EmplyeeSystem.Application\EmplyeeSystem.Application.csproj", "{CC4D7244-9481-4197-A88D-47012844A1DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmplyeeSystem.Application", "EmplyeeSystem.Application\EmplyeeSystem.Application.csproj", "{CC4D7244-9481-4197-A88D-47012844A1DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmplyeeSystem.Persistence", "EmplyeeSystem.Persistence\EmplyeeSystem.Persistence.csproj", "{AAB0BB55-EAAA-458C-978A-53D23DE0B1FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmplyeeSystem.Persistence", "EmplyeeSystem.Persistence\EmplyeeSystem.Persistence.csproj", "{AAB0BB55-EAAA-458C-978A-53D23DE0B1FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmplyeeSystem.Api", "EmplyeeSystem.Api\EmplyeeSystem.Api.csproj", "{01BDC6D9-1832-41B9-8A7A-F63B39B2064F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmplyeeSystem.Api", "EmplyeeSystem.Api\EmplyeeSystem.Api.csproj", "{01BDC6D9-1832-41B9-8A7A-F63B39B2064F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

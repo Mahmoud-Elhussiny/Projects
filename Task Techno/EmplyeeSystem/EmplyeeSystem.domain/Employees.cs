@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace EmplyeeSystem.domain
 {
-    [Table("Employee")]
     public class Employees
     {
         [Key]
@@ -17,6 +16,8 @@ namespace EmplyeeSystem.domain
         public string name { get; set; } = "";
         
         public string? address { get; set; }
+
+        public List<Departments> Departments { get; set; }
 
     }
 }
