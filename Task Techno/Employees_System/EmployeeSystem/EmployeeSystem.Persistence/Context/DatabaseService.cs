@@ -21,10 +21,7 @@ namespace EmployeeSystem.Persistence.Context
         {
 
         }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseMySQL("server=localhost;database=Company_System;user=root;password=root");
-        }
+       
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

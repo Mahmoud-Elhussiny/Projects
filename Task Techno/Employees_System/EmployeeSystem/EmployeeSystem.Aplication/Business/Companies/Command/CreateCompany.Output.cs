@@ -7,6 +7,8 @@ namespace EmployeeSystem.Aplication.Business.Companies.Command
     {
         public CreateCompanyHandlerOutput() { }
         public CreateCompanyHandlerOutput(Guid correlationId) : base(correlationId) { }
+        
+        
         public string Messages { get; set; }
     }
 }
