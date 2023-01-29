@@ -2,10 +2,7 @@
 using AutoMapper;
 using EmployeeSystem.Aplication.Business.Employees.Command;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using Swashbuckle.AspNetCore.Annotations;
 
 namespace EmployeeSystem.WebAPI.EndPoint.Employees
 {
@@ -23,7 +20,6 @@ namespace EmployeeSystem.WebAPI.EndPoint.Employees
             _mapper = mapper;
 
         }
-        //[Authorize]
         [HttpDelete(DeleteEmployeeEndPointRequest.Route)]
         [Produces("application/json")]
         public override async Task<ActionResult<DeleteEmployeeEndPointResponse>> HandleAsync([FromQuery] DeleteEmployeeEndPointRequest request, CancellationToken cancellationToken = default)

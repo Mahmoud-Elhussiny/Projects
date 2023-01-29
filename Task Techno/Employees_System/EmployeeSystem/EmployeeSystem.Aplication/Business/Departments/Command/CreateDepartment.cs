@@ -2,7 +2,6 @@
 using EmployeeSystem.Domain;
 using MediatR;
 using Microsoft.AspNetCore.Http;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace EmployeeSystem.Aplication.Business.Departments.Command

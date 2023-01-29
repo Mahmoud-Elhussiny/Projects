@@ -2,10 +2,7 @@
 using AutoMapper;
 using EmployeeSystem.Aplication.Business.Employees.Command;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using Swashbuckle.AspNetCore.Annotations;
 
 namespace EmployeeSystem.WebAPI.EndPoint.Employees
 {
@@ -23,7 +20,6 @@ namespace EmployeeSystem.WebAPI.EndPoint.Employees
             _mapper = mapper;
 
         }
-        //[Authorize]
         [HttpPut(UpdateEmployeeEndPointRequest.Route)]
         [Produces("application/json")]
         public override async Task<ActionResult<UpdateEmployeeEndPointResponse>> HandleAsync([FromBody] UpdateEmployeeEndPointRequest request, CancellationToken cancellationToken = default)

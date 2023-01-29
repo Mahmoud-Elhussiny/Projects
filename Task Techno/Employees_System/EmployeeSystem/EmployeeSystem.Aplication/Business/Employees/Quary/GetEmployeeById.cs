@@ -33,7 +33,7 @@ namespace EmployeeSystem.Aplication.Business.Employees.Quary
             output.UserName = employeeSelected.UserName;
             output.password = employeeSelected.password;
             output.address = employeeSelected.address;
-
+            output.isAdmin = employeeSelected.isAdmin;
 
             return output;
         }

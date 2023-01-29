@@ -4,8 +4,6 @@ using EmployeeSystem.Aplication.Business.Departments.Quary;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using Swashbuckle.AspNetCore.Annotations;
 
 namespace EmployeeSystem.WebAPI.EndPoint.Departments
 {
@@ -23,7 +21,7 @@ namespace EmployeeSystem.WebAPI.EndPoint.Departments
             _mapper = mapper;
 
         }
-        //[Authorize]
+        [Authorize]
         [HttpGet(GetAllDepartmentsEndPointRequest.Route)]
         [Produces("application/json")]
         public override async Task<ActionResult<GetAllDepartmentsEndPointResponse>> HandleAsync([FromQuery] GetAllDepartmentsEndPointRequest request, CancellationToken cancellationToken = default)

@@ -1,5 +1,6 @@
 ﻿
 using EmployeeSystem.Aplication.Messages;
+using EmployeeSystem.Domain;
 
 namespace EmployeeSystem.Aplication.Business.Employees.Quary
 {
@@ -25,6 +26,8 @@ namespace EmployeeSystem.Aplication.Business.Employees.Quary
         public string? address { get; set; }
 
         public bool isAdmin { get; set; }
+
+        public List<string> DepartmentsName { get; set; }
 
     }
 }

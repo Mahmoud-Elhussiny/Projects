@@ -12,6 +12,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.13" />
     <PackageReference Include="MySql.EntityFrameworkCore" Version="6.0.10" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.26.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,7 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Business\UserManegment\Command\" />
     <Folder Include="Business\UserManegment\Quary\" />
     <Folder Include="dependency_injection\" />
   </ItemGroup>

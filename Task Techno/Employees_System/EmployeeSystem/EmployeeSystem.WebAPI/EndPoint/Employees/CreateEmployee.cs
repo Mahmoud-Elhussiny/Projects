@@ -4,8 +4,6 @@ using EmployeeSystem.Aplication.Business.Employees.Command;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using Swashbuckle.AspNetCore.Annotations;
 
 namespace EmployeeSystem.WebAPI.EndPoint.Employees
 {
@@ -23,9 +21,10 @@ namespace EmployeeSystem.WebAPI.EndPoint.Employees
             _mapper = mapper;
 
         }
-       // [Authorize]
+        [Authorize(Roles = "admin")]
         [HttpPost(CreateEmployeeEndPointRequest.Route)]
         [Produces("application/json")]
+   
         public override async Task<ActionResult<CreateEmployeeEndPointResponse>> HandleAsync([FromBody] CreateEmployeeEndPointRequest request, CancellationToken cancellationToken = default)
         {
             _logger.LogInformation("Information : Starting CreateEmployee handling");

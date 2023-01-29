@@ -5,10 +5,8 @@ using MySql.EntityFrameworkCore.Metadata;
 
 namespace EmployeeSystem.Persistence.Migrations
 {
-    /// <inheritdoc />
-    public partial class intialDB : Migration
+    public partial class initialDB : Migration
     {
-        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterDatabase()
@@ -108,7 +106,6 @@ namespace EmployeeSystem.Persistence.Migrations
                 column: "CompanyId");
         }
 
-        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(

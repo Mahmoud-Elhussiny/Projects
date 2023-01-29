@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using EmployeeSystem.Aplication.Business.Companies.Command;
-using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeSystem.WebAPI.EndPoint.Companies
 {

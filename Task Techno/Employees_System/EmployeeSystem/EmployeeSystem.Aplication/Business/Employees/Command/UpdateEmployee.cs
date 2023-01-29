@@ -39,10 +39,13 @@ namespace EmployeeSystem.Aplication.Business.Employees.Command
             if (!String.IsNullOrEmpty(request.address))
                 employeeUpdated.address = request.address;
 
-            if (request.Departments_Id.Count > 0)
+            if (request.isAdmin.HasValue) 
+                employeeUpdated.isAdmin = request.isAdmin.Value;
+
+            if (request.Departments_Id!.Count() > 0)
             {
                 employeeUpdated.Departments.Clear();
-                request.Departments_Id.ForEach(async o =>
+                request.Departments_Id!.ForEach(async o =>
                 {
                     var departs = await _databaseService.Departments
                     .FirstOrDefaultAsync(s => s.Id == o);

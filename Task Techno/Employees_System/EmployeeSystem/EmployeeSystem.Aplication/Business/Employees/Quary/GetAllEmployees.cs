@@ -3,6 +3,7 @@ using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using System.Security.Claims;
 
 namespace EmployeeSystem.Aplication.Business.Employees.Quary
 {
@@ -21,21 +22,38 @@ namespace EmployeeSystem.Aplication.Business.Employees.Quary
         {
             _logger.LogInformation("Handling GetAllEmployees business logic");
             GetAllEmployeesHandlerOutput output = new GetAllEmployeesHandlerOutput(request.CorrelationId());
+
             
             var allemployees = await _databaseService.Employees
-                .Include(o=>o.Departments)
-                .Select(o=> new AllEmployees
-            {
-                Id = o.Id,
-                Name = o.Name,
-                UserName = o.UserName,
-                password = o.password,
-                address = o.address
-            }).ToListAsync(cancellationToken);
+                .Include(o => o.Departments)
+                .ToListAsync(cancellationToken);
 
-            output.allEmployees = allemployees;
+
+            var outputemployyee = new List<AllEmployees>();
+            foreach (var emp in allemployees)
+            {
+
+                var singleEmployee = new AllEmployees();
+                singleEmployee.Id = emp.Id;
+                singleEmployee.Name = emp.Name;
+                singleEmployee.address = emp.address;
+                singleEmployee.UserName = emp.UserName;
+                singleEmployee.password = emp.password;
+                singleEmployee.isAdmin = emp.isAdmin;
+                singleEmployee.DepartmentsName = new List<string>();
+
+                emp.Departments
+                    .ForEach(d => singleEmployee.DepartmentsName.Add(d.Name));
+
+                outputemployyee.Add(singleEmployee);
+            }
+
+
+            output.allEmployees = outputemployyee;
 
             return output;
+
+        
         }
     }
 }

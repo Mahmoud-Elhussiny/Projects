@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using EmployeeSystem.Aplication.Business.Departments.Quary;
-using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeSystem.WebAPI.EndPoint.Departments
 {

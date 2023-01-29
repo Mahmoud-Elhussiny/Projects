@@ -2,11 +2,8 @@
 using AutoMapper;
 using EmployeeSystem.Aplication.Business.Companies.Quary;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using Swashbuckle.AspNetCore.Annotations;
-using System.Net;
+
 
 namespace EmployeeSystem.WebAPI.EndPoint.Companies
 {
@@ -24,7 +21,6 @@ namespace EmployeeSystem.WebAPI.EndPoint.Companies
             _mapper = mapper;
 
         }
-        //[Authorize]
         [HttpGet(GetAllCompaniesEndPointRequest.Route)]
         [Produces("application/json")]
         public override async Task<ActionResult<GetAllCompaniesEndPointResponse>> HandleAsync([FromQuery] GetAllCompaniesEndPointRequest request, CancellationToken cancellationToken = default)

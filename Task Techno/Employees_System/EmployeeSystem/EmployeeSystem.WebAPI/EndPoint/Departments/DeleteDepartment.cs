@@ -2,11 +2,7 @@
 using AutoMapper;
 using EmployeeSystem.Aplication.Business.Departments.Command;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using Swashbuckle.AspNetCore.Annotations;
-using System.Net;
 
 namespace EmployeeSystem.WebAPI.EndPoint.Departments
 {
@@ -24,12 +20,8 @@ namespace EmployeeSystem.WebAPI.EndPoint.Departments
             _mapper = mapper;
 
         }
-        //[Authorize]
         [HttpDelete(DeleteDepartmentEndPointRequest.Route)]
-        [SwaggerOperation(Summary = "DeleteDepartment", Description = "DeleteDepartment ", OperationId = "EmployeeSystem.WebAPI.EndPoint.Departments.DeleteDepartment", Tags = new[] { "EmployeeSystem.WebAPI.EndPoint.Departments" })]
         [Produces("application/json")]
-        [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(DeleteDepartmentEndPointResponse))]
-        [SwaggerResponse((int)HttpStatusCode.BadRequest, Type = typeof(Exception))]
         public override async Task<ActionResult<DeleteDepartmentEndPointResponse>> HandleAsync([FromQuery] DeleteDepartmentEndPointRequest request, CancellationToken cancellationToken = default)
         {
             _logger.LogInformation("Information : Starting DeleteDepartment handling");

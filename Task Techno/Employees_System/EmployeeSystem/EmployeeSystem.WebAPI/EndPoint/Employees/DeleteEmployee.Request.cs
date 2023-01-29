@@ -1,5 +1,4 @@
 ﻿using EmployeeSystem.Aplication.Messages;
-using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeSystem.WebAPI.EndPoint.Employees
 {

@@ -24,21 +24,25 @@ namespace EmployeeSystem.Aplication.Business.Employees.Command
             CreateEmployeeHandlerOutput output = new CreateEmployeeHandlerOutput(request.CorrelationId());
 
             var newEmployee = new Employee();
+            newEmployee.Departments = new List<Department>();
             newEmployee.Name = request.Name;
             newEmployee.UserName = request.UserName;
             newEmployee.password = request.password;
             newEmployee.address = request.address;
-            request.Departments_Id.ForEach(async o =>
+            
+            
+            foreach(var dep in request.Departments_Id)
             {
                 var departs = await _databaseService.Departments
-                .FirstOrDefaultAsync(s => s.Id == o);
+               .FirstOrDefaultAsync(s => s.Id == dep);
 
                 if (departs == null)
-                    throw new Exception($"this Department {o} is not found");
+                    throw new Exception("this Department is not found");
 
                 newEmployee.Departments.Add(departs);
-
-            });
+            }
+            
+         
 
             await _databaseService.Employees
                 .AddAsync(newEmployee, cancellationToken);

@@ -2,10 +2,7 @@
 using AutoMapper;
 using EmployeeSystem.Aplication.Business.Departments.Command;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using Swashbuckle.AspNetCore.Annotations;
 
 namespace EmployeeSystem.WebAPI.EndPoint.Departments
 {
@@ -23,7 +20,6 @@ namespace EmployeeSystem.WebAPI.EndPoint.Departments
             _mapper = mapper;
 
         }
-        //[Authorize]
         [HttpPut(UpdateDepartmentEndPointRequest.Route)]
         [Produces("application/json")]
         public override async Task<ActionResult<UpdateDepartmentEndPointResponse>> HandleAsync([FromBody] UpdateDepartmentEndPointRequest request, CancellationToken cancellationToken = default)

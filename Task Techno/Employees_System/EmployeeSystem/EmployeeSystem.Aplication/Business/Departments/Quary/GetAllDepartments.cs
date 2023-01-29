@@ -4,6 +4,7 @@ using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using System.Security.Claims;
 
 namespace EmployeeSystem.Aplication.Business.Departments.Quary
 {
@@ -23,15 +24,34 @@ namespace EmployeeSystem.Aplication.Business.Departments.Quary
             _logger.LogInformation("Handling GetAllDepartments business logic");
             GetAllDepartmentsHandlerOutput output = new GetAllDepartmentsHandlerOutput(request.CorrelationId());
 
-            var allDeparts = await _databaseService.Departments.Select(o => new AllDeparts
+            List<Claim> claims = _contextAccessor.HttpContext!.User.Claims.ToList();
+            
+
+            var UserId = int.Parse(claims.First(o=>o.Type == "Id").Value);
+            var Role = claims.First(o => o.Type == ClaimTypes.Role).Value.ToString();
+
+            if (Role == "admin")
+            {
+                var allDeparts = await _databaseService.Departments.Select(o => new AllDeparts
+                {
+                    Id = o.Id,
+                    Name = o.Name,
+                    CompanyId = o.CompanyId
+
+                }).ToListAsync(cancellationToken);
+                output.allDeparts = allDeparts;
+                return output;
+
+            }
+            var CustomDeparts = await _databaseService.Departments.Where(o=>o.Id == UserId).Select(o => new AllDeparts
             {
                 Id = o.Id,
                 Name = o.Name,
                 CompanyId = o.CompanyId
 
             }).ToListAsync(cancellationToken);
+            output.allDeparts = CustomDeparts;
 
-            output.allDeparts = allDeparts;
 
             return output;
         }

@@ -1,5 +1,4 @@
 ﻿using EmployeeSystem.Aplication.Messages;
-using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeSystem.WebAPI.EndPoint.Employees
 {
@@ -18,7 +17,7 @@ namespace EmployeeSystem.WebAPI.EndPoint.Employees
 
         public bool? isAdmin { get; set; }
 
-        public List<int> Departments_Id { get; set; } = null!;
+        public List<int>? Departments_Id { get; set; }
 
     }
 }

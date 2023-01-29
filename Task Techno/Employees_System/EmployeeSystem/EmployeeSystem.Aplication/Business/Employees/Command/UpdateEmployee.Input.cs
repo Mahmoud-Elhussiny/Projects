@@ -19,7 +19,7 @@ namespace EmployeeSystem.Aplication.Business.Employees.Command
 
         public bool? isAdmin { get; set; }
 
-        public List<int> Departments_Id { get; set; } = null!;
+        public List<int>? Departments_Id { get; set; }
 
     }
 }

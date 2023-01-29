@@ -29,6 +29,7 @@ namespace EmployeeSystem.Persistence.Context
             modelBuilder.Entity<Employee>(entity =>
             {
                 entity.Property(e => e.isAdmin).HasDefaultValue(false);
+                entity.HasAlternateKey(c => c.UserName);
             });
 
             modelBuilder.Entity<Employee>(entity =>
@@ -43,6 +44,7 @@ namespace EmployeeSystem.Persistence.Context
                     isAdmin = true,
                 });
             });
+
         }
 
         public DbSet<Company> Companies { get; set; }

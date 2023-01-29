@@ -10,15 +10,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EmployeeSystem.Persistence.Migrations
 {
     [DbContext(typeof(DatabaseService))]
-    [Migration("20230125140648_intialDB")]
-    partial class intialDB
+    [Migration("20230129101350_makeUserNameUNIQUE")]
+    partial class makeUserNameUNIQUE
     {
-        /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.2")
+                .HasAnnotation("ProductVersion", "6.0.13")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("DepartmentEmployee", b =>
@@ -83,7 +82,7 @@ namespace EmployeeSystem.Persistence.Migrations
 
                     b.Property<string>("UserName")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("address")
                         .HasColumnType("longtext");
@@ -98,6 +97,8 @@ namespace EmployeeSystem.Persistence.Migrations
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
+
+                    b.HasAlternateKey("UserName");
 
                     b.ToTable("Employees");
 
